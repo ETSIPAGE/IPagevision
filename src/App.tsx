@@ -143,7 +143,7 @@ const App: React.FC = () => {
                   <Section
                     title="Our Partners"
                     text="Collaboration is at the heart of innovation. We are proud to partner with industry leaders in technology and software who share our commitment to excellence. Together, we develop and utilize cutting-edge tools that empower artists and designers worldwide."
-                    imageUrl="/images/7.png"
+                    imageUrl="/images/Our Partners.png"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
