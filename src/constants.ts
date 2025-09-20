@@ -1,14 +1,14 @@
 import { GalleryImage, NavLinkCategory } from './types';
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  { id: 1, src: '/images/8.png', title: 'Futuristic Metropolis', subtitle: 'Conceptual Design', gridClass: 'md:col-span-2 md:row-span-2' },
-  { id: 2, src: '/images/9.png', title: 'Riverside Complex', subtitle: 'Urban Development', gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 3, src: '/images/10.png', title: 'Symphony Hall', subtitle: 'Cultural Center', gridClass: 'md:col-span-1' },
-  { id: 4, src: '/images/11.png', title: 'Coastal Residences', subtitle: 'Private Housing', gridClass: 'md:col-span-2' },
-  { id: 5, src: '/images/12.png', title: 'Island Pathway', subtitle: 'Public Infrastructure', gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 6, src: '/images/13.png', title: 'National Museum of Archeology', subtitle: 'Undisclosed Project', gridClass: 'md:col-span-2 md:row-span-2' },
-  { id: 7, src: '/images/14.png', title: 'Hillside Villa', subtitle: 'Luxury Estate', gridClass: 'md:col-span-1' },
-  { id: 8, src: '/images/15.png', title: 'Suspension Bridge', subtitle: 'Civil Engineering', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 1, src: '/images/8.png', title: 'HDB Maisonette', subtitle: 'Living', gridClass: 'md:col-span-2 md:row-span-2' },
+  { id: 2, src: '/images/9.png', title: 'HDB Maisonette', subtitle: 'Foyer ', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 3, src: '/images/12.png', title: 'HDB Masionette', subtitle: 'Master Bedroom', gridClass: 'md:col-span-1' },
+  { id: 4, src: '/images/Guest Bedroom (Bungalow).png', title: 'HDB Masionette', subtitle: 'Guest Bedroom', gridClass: 'md:col-span-2' },
+  { id: 5, src: '/images/Kitchen (HDB M).png', title: 'HDB Masionette', subtitle: 'Kitchen', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 6, src: '/images/Bathroom (HDB M).png', title: 'HDB Masionette', subtitle: 'Bathroom ', gridClass: 'md:col-span-2 md:row-span-2' },
+  { id: 7, src: '/images/1.png', title: 'Bungalow', subtitle: 'Living', gridClass: 'md:col-span-1' },
+  { id: 8, src: '/images/gd.png', title: 'Bungalow', subtitle: 'Master Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
 ];
 
 export const CLIENT_LOGOS: string[] = [
@@ -28,7 +28,8 @@ export const NAV_LINKS: NavLinkCategory[] = [
       { name: 'Works', href: '#works' },
       { name: 'Newsroom', href: '#newsroom' },
       { name: 'Clients', href: '#clients' },
-      { name: 'Contact', href: '#contact' },
+  { name: 'Contact', href: '#contact' },
+  { name: 'Terms & Conditions', href: '/terms-and-conditions' },
     ]
   },
   {
