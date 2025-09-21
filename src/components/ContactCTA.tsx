@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { FaWhatsapp } from 'react-icons/fa';  // Import WhatsApp icon from react-icons
 
 const ContactCTA: React.FC = () => {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3, triggerOnce: true });
@@ -9,53 +10,49 @@ const ContactCTA: React.FC = () => {
   const buttonText = "Fill out form";
   const imageUrl = "https://images.unsplash.com/photo-1581362512932-aaca443b7161?q=80&w=1920&auto=format&fit=crop";
 
-  const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => setShowModal(false), 1500);
+    setTimeout(() => setSubmitted(false), 1500);  // Reset after 1.5 seconds
     setForm({ name: '', email: '', phone: '', message: '' });
   };
 
+  const whatsappLink = `https://wa.me/?text=Hi, I'm interested in your services. Name: ${form.name}, Email: ${form.email}, Message: ${form.message}`;
+
   return (
     <section ref={ref} className="bg-black py-16 px-6 md:px-12 lg:px-24">
-        <div
-          className="relative rounded-lg overflow-hidden bg-cover bg-center text-white"
-          style={{ backgroundImage: `url(${imageUrl})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
-          <div className="relative z-10 p-12 md:p-24 max-w-2xl">
-              <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-                {title}
-              </h2>
-              <p className={`text-lg text-gray-200 mb-8 transition-all duration-700 ease-out delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-                {text}
-              </p>
-              <button
-                type="button"
-                onClick={() => setShowModal(true)}
-                className={`group inline-flex items-center bg-black text-white px-6 py-3 font-semibold hover:bg-gray-800 transition-all duration-700 ease-out delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+      {/* Main Form and Content */}
+      <div className="flex flex-col md:flex-row gap-12 pt-12">
+        <div className="flex items-center justify-between w-full space-x-8">
+          {/* Left Section: Text */}
+          <div className="w-full md:w-1/2 space-y-4">
+            <h2 className="text-2xl font-semibold text-white">Contact Form</h2>
+            <p className="text-lg text-gray-200">{text}</p>
+
+            {/* WhatsApp Button with Icon - Centered */}
+            <div className="flex justify-center mt-4">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center bg-green-700 text-white px-4 py-2 font-semibold hover:bg-green-800 transition-all duration-700 ease-out delay-300 w-auto justify-center rounded-lg"
               >
-                {buttonText}
-                <span className="ml-2 font-light transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
-              </button>
-      {/* Modal Contact Form */}
-      {showModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black bg-opacity-80">
-          <div className="bg-gradient-to-br from-[#18130a] via-[#23201b] to-[#18130a] border border-orange-500 rounded-2xl shadow-2xl p-8 w-full max-w-md relative animate-fadeIn">
-            <button
-              className="absolute top-3 right-3 text-orange-400 hover:text-white text-2xl"
-              onClick={() => setShowModal(false)}
-              aria-label="Close"
-            >
-              &times;
-            </button>
-            <h2 className="text-2xl font-bold mb-4 text-orange-400">Contact Us</h2>
+                {/* Increased Icon Size */}
+                <FaWhatsapp className="mr-2 text-2xl" /> {/* Larger WhatsApp Icon */}
+                <span className="text-lg">Contact via WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Section: Form */}
+          <div className="w-full md:w-1/2 space-y-4">
             {submitted ? (
               <div className="text-orange-300 text-center py-8">Thank you! We'll be in touch soon.</div>
             ) : (
@@ -69,7 +66,7 @@ const ContactCTA: React.FC = () => {
                     value={form.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500"
+                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500 text-sm"
                     placeholder="Your name"
                   />
                 </div>
@@ -82,7 +79,7 @@ const ContactCTA: React.FC = () => {
                     value={form.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500"
+                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500 text-sm"
                     placeholder="you@email.com"
                   />
                 </div>
@@ -95,7 +92,7 @@ const ContactCTA: React.FC = () => {
                     value={form.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500"
+                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500 text-sm"
                     placeholder="Phone number"
                   />
                 </div>
@@ -108,7 +105,7 @@ const ContactCTA: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={3}
-                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500"
+                    className="w-full px-3 py-2 rounded bg-[#23201b] text-white border border-orange-500 focus:outline-none focus:border-white placeholder-gray-500 text-sm"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -122,9 +119,7 @@ const ContactCTA: React.FC = () => {
             )}
           </div>
         </div>
-      )}
-          </div>
-        </div>
+      </div>
     </section>
   );
 };

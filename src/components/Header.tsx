@@ -25,12 +25,11 @@ const Header: React.FC = () => {
           </div>
           <nav className={`mt-4 md:mt-0 flex flex-wrap gap-4 md:gap-8 text-lg font-semibold transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}>
             <a href="#about-us" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>About us</a>
-            <a href="#our-team" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Our Team</a>
-            <a href="#works" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Works</a>
-            <a href="#newsroom" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Newsroom</a>
+            <a href="#works" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Projects</a>
+            <a href="#services" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Services</a>
+            <a href="#workflow" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Workflow</a>
             <a href="#clients" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Clients</a>
             <a href="#contact" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Contact</a>
-            <Link to="/terms-and-conditions" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Terms & Conditions</Link>
           </nav>
         </div>
       </header>
