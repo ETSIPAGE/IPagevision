@@ -78,7 +78,7 @@ const App: React.FC = () => {
                   <Section
                     title="Our Expertise"
                     text="We operate at the intersection of art and technology, offering a suite of visualization services tailored to diverse industries. Our expertise ensures that every project, regardless of its scale or complexity, is communicated with clarity, impact, and artistic integrity."
-                    imageUrl="/images/Our Expertise.jpeg"
+                    imageUrl="/images/Our Expertise.png"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
