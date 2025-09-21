@@ -24,7 +24,8 @@ const ContactCTA: React.FC = () => {
     setForm({ name: '', email: '', phone: '', message: '' });
   };
 
-  const whatsappLink = `https://wa.me/?text=Hi, I'm interested in your services. Name: ${form.name}, Email: ${form.email}, Message: ${form.message}`;
+ const whatsappLink = `https://wa.me/6590903217?text=Hi, I'm interested in your services.`;
+
 
   return (
     <section ref={ref} className="bg-black py-16 px-6 md:px-12 lg:px-24">
