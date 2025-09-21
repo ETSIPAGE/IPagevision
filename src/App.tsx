@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
@@ -10,21 +11,13 @@ import ContactCTA from './components/ContactCTA';
 import Loader from './components/Loader';
 import TermsAndConditions from './components/TermsAndConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import SubSection from './components/SubSection';
 import { GALLERY_IMAGES, CLIENT_LOGOS, NAV_LINKS } from './constants';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const SubSection: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
-  <div id={id}>
-    <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-    <p className="text-gray-400">{children}</p>
-  </div>
-);
-
-const App: React.FC = () => {
+function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Hide loader after a delay to ensure the animation is visible
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -32,17 +25,15 @@ const App: React.FC = () => {
   return (
     <Router>
       <Loader isLoading={isLoading} />
-      <div className={`bg-black text-white font-sans antialiased transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <div
+        className={`bg-black text-white font-sans antialiased transition-opacity duration-300 ${
+          isLoading ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         <Header />
         <Routes>
-          <Route
-            path="/terms-and-conditions"
-            element={<TermsAndConditions />}
-          />
-          <Route
-            path="/privacy-policy"
-            element={<PrivacyPolicy />}
-          />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route
             path="*"
             element={
@@ -64,7 +55,7 @@ const App: React.FC = () => {
                     title="Our Team"
                     text="Our strength lies in our diversity. We are a collective of architects, interior designers, civil engineers, artists, filmmakers and tech enthusiasts, united by a shared passion for visual storytelling. This multidisciplinary approach allows us to tackle complex challenges with a unique perspective, pushing the boundaries of what's possible in digital representation."
                     imageUrl="/images/team.jpeg"
-                    imagePosition="right"
+                    imagePosition="left"
                   />
                 </div>
                 <Section
@@ -74,11 +65,11 @@ const App: React.FC = () => {
                 <div id="works">
                   <Gallery images={GALLERY_IMAGES} />
                 </div>
-                <div id="expertise-architecture">
+                <div id="services">
                   <Section
-                    title="Our Expertise"
-                    text="We operate at the intersection of art and technology, offering a suite of visualization services tailored to diverse industries. Our expertise ensures that every project, regardless of its scale or complexity, is communicated with clarity, impact, and artistic integrity."
-                    imageUrl="/images/Our Expertise.png"
+                    title="Services"
+                    text="We operate at the intersection of art and technology, offering a suite of visualization services tailored to diverse industries. Our services ensure that every project, regardless of its scale or complexity, is communicated with clarity, impact, and artistic integrity."
+                    imageUrl="/images/sdd.png"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
@@ -103,13 +94,25 @@ const App: React.FC = () => {
                     </div>
                   </Section>
                 </div>
-                <div id="newsroom">
+                <div id="workflow">
                   <Section
-                    title="Newsroom"
-                    text="Stay connected with the latest from IPage Vision. Here, we share our most recent projects, awards, and contributions to the design community. We are proud to be part of the global conversation, shaping the future of architectural and digital design communication."
+                    title="Workflow"
+                    text="Our workflow is designed to ensure seamless collaboration, transparency, and efficiency at every stage of your project. From initial consultation to final delivery, we keep you informed and involved, making the process smooth and enjoyable."
                     imageUrl="/images/Newsletter.jpeg"
                     imagePosition="right"
-                  />
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 mt-8">
+                      <SubSection id="workflow-consultation" title="Consultation">
+                        We begin by understanding your vision, requirements, and goals to tailor our approach.
+                      </SubSection>
+                      <SubSection id="workflow-design" title="Design & Visualization">
+                        Our team crafts detailed visualizations, keeping you updated with regular previews and feedback sessions.
+                      </SubSection>
+                      <SubSection id="workflow-delivery" title="Delivery & Support">
+                        We deliver high-quality results on time and provide ongoing support to ensure your satisfaction.
+                      </SubSection>
+                    </div>
+                  </Section>
                 </div>
                 <div id="clients">
                   <Clients logos={CLIENT_LOGOS} />
@@ -165,6 +168,6 @@ const App: React.FC = () => {
       </div>
     </Router>
   );
-};
+}
 
 export default App;
