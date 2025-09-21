@@ -3,7 +3,7 @@ import React from 'react';
 const TermsAndConditions: React.FC = () => (
   <div className="max-w-3xl mx-auto px-4 py-12 text-white">
     <h1 className="text-3xl font-bold mb-6 text-cyan-400">Terms and Conditions</h1>
-    <p className="text-gray-400 mb-2">Effective Date: [Insert Date]</p>
+  <p className="text-gray-400 mb-2">Effective Date: 20-09-2025</p>
     <ol className="list-decimal list-inside space-y-6 text-gray-200">
       <li>
         <strong>Introduction</strong>
@@ -92,7 +92,7 @@ const TermsAndConditions: React.FC = () => (
         <div className="text-gray-400">
           <p>IPage Vision</p>
           <p>Address: IPage Vision Head Studio, Blk 641A, Punggol Drive, Singapore 821641</p>
-          <p>Phone: +65 9090 3217</p>
+          <p>Phone: +65 8216 1261</p>
           <p>Email: bd@ipagevision.com</p>
         </div>
       </li>

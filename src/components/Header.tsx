@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import NavigationMenu from './NavigationMenu';
 import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -16,40 +13,27 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMenuOpen]);
-
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled || isMenuOpen ? 'bg-white bg-opacity-80 backdrop-blur-md' : 'bg-transparent'}`}>
-        <div className="container mx-auto px-6 md:px-12 py-6 flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-wider">
-            <Link to="/" className="flex items-center space-x-3" onClick={() => setIsMenuOpen(false)}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-white bg-opacity-80 backdrop-blur-md' : 'bg-transparent'}`}>
+        <div className="container mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row md:justify-between md:items-center">
+          <div className="flex items-center justify-between w-full md:w-auto">
+            <Link to="/" className="flex items-center space-x-3">
               <img src="/images/new-logo.png.png" alt="IPage Vision Logo" className="h-8 w-auto" />
             </Link>
           </div>
-          <button 
-            className="group flex flex-col justify-center items-center h-8 w-8 focus:outline-none z-50" 
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className={`w-8 h-0.5 bg-black transition-transform duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-[3px]' : ''}`}></span>
-            <span className={`w-8 h-0.5 bg-black transition-opacity duration-300 ease-in-out my-1.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-            <span className={`w-8 h-0.5 bg-black transition-transform duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-[3px]' : ''}`}></span>
-          </button>
+          <nav className={`mt-4 md:mt-0 flex flex-wrap gap-4 md:gap-8 text-lg font-semibold transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}>
+            <a href="#about-us" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>About us</a>
+            <a href="#our-team" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Our Team</a>
+            <a href="#works" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Works</a>
+            <a href="#newsroom" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Newsroom</a>
+            <a href="#clients" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Clients</a>
+            <a href="#contact" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Contact</a>
+            <Link to="/terms-and-conditions" className={`hover:text-orange-400 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>Terms & Conditions</Link>
+          </nav>
         </div>
       </header>
-      <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 };

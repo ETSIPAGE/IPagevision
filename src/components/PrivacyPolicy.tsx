@@ -67,7 +67,7 @@ const PrivacyPolicy: React.FC = () => (
         <div className="text-gray-400">
           <p>IPage Vision</p>
           <p>Email: bd@ipagevision.com</p>
-          <p>Phone: +65 8261 1261</p>
+          <p>Phone: +65 8216 1261</p>
           <p>Address: IPage Vision Head Studio, Blk 641A, Punggol Drive, Singapore 821641</p>
         </div>
       </li>
