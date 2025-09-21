@@ -172,19 +172,19 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
         </div>
       )}
           </div>
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-500 ease-out delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            {links.map(category => (
-              <div key={category.title}>
-                <h3 className="text-white font-semibold mb-4">{category.title}</h3>
-                <ul>
-                  {category.links.map(link => (
-                    <li key={link.name} className="mb-2">
-                      <a href={link.href} className="hover:text-white">{link.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500 ease-out delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <div>
+              <h3 className="text-white font-semibold mb-4">Navigation</h3>
+              <ul>
+                <li className="mb-2"><a href="#about-us" className="hover:text-white">About us</a></li>
+                <li className="mb-2"><a href="#our-team" className="hover:text-white">Our Team</a></li>
+                <li className="mb-2"><a href="#works" className="hover:text-white">Works</a></li>
+                <li className="mb-2"><a href="#newsroom" className="hover:text-white">Newsroom</a></li>
+                <li className="mb-2"><a href="#clients" className="hover:text-white">Clients</a></li>
+                <li className="mb-2"><a href="#contact" className="hover:text-white">Contact</a></li>
+                <li className="mb-2"><a href="/terms-and-conditions" className="hover:text-white">Terms & Conditions</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         
@@ -196,7 +196,7 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
           </div>
           <div className={`transition-all duration-500 ease-out delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <p>info@ipagevision.com</p>
-            <p>+65 9090 3217</p>
+            <p>+65 8216 1261</p>
           </div>
           <div className="flex items-center md:justify-end space-x-2">
             {SOCIALS.map((social, index) => (
