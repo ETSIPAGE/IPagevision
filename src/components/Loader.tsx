@@ -26,7 +26,7 @@ const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
           }}
         ></div>
         <img
-          src="/images/new-logo.png.png"
+          src="/images/ipagevision.png"
           alt="IPage Vision Logo"
           className="w-48 h-48 object-contain animate-pulse drop-shadow-lg relative"
           style={{ filter: 'drop-shadow(0 0 24px #00ffff88)', zIndex: 1 }}
