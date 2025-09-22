@@ -38,5 +38,180 @@
   <body class="bg-black text-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+     <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+        chatflowid: "06ccf2da-b418-40d3-ac15-173e35283802",
+        apiHost: "https://srv1006227.hstgr.cloud",
+        theme: {
+            button: {
+                backgroundColor: '#ff6600',
+                right: 20,
+                bottom: 20,
+                size: 52,
+                dragAndDrop: false,
+                iconColor: 'white',
+                customIconSrc: 'logo.png',
+                autoWindowOpen: {
+                    autoOpen: true,
+                    openDelay: 2,
+                    autoOpenOnMobile: false
+                },
+                borderRadius: 50,
+                boxShadow: '0 4px 14px rgba(0,0,0,0.25)'
+            },
+            tooltip: {
+                showTooltip: true,
+                tooltipMessage: 'Hi there 👋 Need help?',
+                tooltipBackgroundColor: '#ff6600',
+                tooltipTextColor: '#ffffff',
+                tooltipFontSize: 14,
+                borderRadius: 4,
+                fontFamily: 'Segoe UI, Helvetica Neue, Arial, sans-serif'
+            },
+            disclaimer: {
+                title: 'Disclaimer',
+                message: "By using this chatbot, you agree to the <a target=\"_blank\" href=\"https://flowiseai.com/terms\">Terms & Conditions</a>",
+                textColor: '#000000',
+                buttonColor: '#ff6600',
+                buttonText: 'Start Chatting',
+                buttonTextColor: 'white',
+                blurredBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+                backgroundColor: 'white',
+                borderRadius: 8,
+                fontFamily: 'Segoe UI, Helvetica Neue, Arial, sans-serif'
+            },
+            customCSS: `
+                * {
+                    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+                }
+                .flowise-chat-window {
+                    border: 1px solid #e5e5e5;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                    overflow: hidden;
+                    transition: all 0.3s ease-in-out;
+                }
+                .flowise-chat-window .flowise-header {
+                    background-color: #000000;
+                    color: #ffffff;
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding: 12px;
+                }
+                .flowise-bot-message {
+                    background-color: #f9f9f9;
+                    color: #1c1c1c;
+                    font-size: 15px;
+                    border-radius: 10px;
+                }
+                .flowise-user-message {
+                    background-color: #ff6600;
+                    color: #ffffff;
+                    font-size: 15px;
+                    border-radius: 10px;
+                }
+                .flowise-chat-window .flowise-input-area input {
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    padding: 8px;
+                    font-size: 15px;
+                }
+                .flowise-chat-window .flowise-send-btn {
+                    background-color: #ff6600;
+                    color: white;
+                    border-radius: 6px;
+                    padding: 0 16px;
+                    margin-left: 8px;
+                }
+
+                /* Tablets */
+                @media (max-width: 1024px) {
+                    .flowise-chat-window {
+                        width: 90% !important;
+                        height: 70vh !important;
+                        bottom: 15px !important;
+                        right: 15px !important;
+                    }
+                }
+
+                /* Large Phones */
+                @media (max-width: 768px) {
+                    .flowise-chat-window {
+                        width: 95% !important;
+                        height: 75vh !important;
+                        bottom: 10px !important;
+                        right: 10px !important;
+                    }
+                }
+
+                /* Small Phones */
+                @media (max-width: 480px) {
+                    .flowise-chat-window {
+                        width: 100% !important;
+                        height: 80vh !important;
+                        left: 0 !important;
+                        right: 0 !important;
+                        bottom: 0 !important;
+                        border-radius: 0 !important;
+                    }
+                }
+            `,
+            chatWindow: {
+                showTitle: true,
+                showAgentMessages: true,
+                title: 'iPageVision Assistant',
+                titleAvatarSrc: 'logo.png',
+                welcomeMessage: '👋 Hello! How can we help you today?',
+                errorMessage: '⚠️ Something went wrong, please try again.',
+                backgroundColor: '#ffffff',
+                backgroundImage: '',
+                height: 650,
+                width: 380,
+                fontSize: 15,
+                starterPromptFontSize: 14,
+                clearChatOnReload: false,
+                sourceDocsTitle: 'Sources:',
+                renderHTML: true,
+                botMessage: {
+                    backgroundColor: '#f9f9f9',
+                    textColor: '#1c1c1c',
+                    showAvatar: true,
+                    avatarSrc: 'logo.png'
+                },
+                userMessage: {
+                    backgroundColor: '#ff6600',
+                    textColor: '#ffffff',
+                    showAvatar: true,
+                    avatarSrc: 'profile1.png'
+                },
+                textInput: {
+                    placeholder: 'Type your question...',
+                    backgroundColor: '#ffffff',
+                    textColor: '#1c1c1c',
+                    sendButtonColor: '#ff6600',
+                    maxChars: 120,
+                    maxCharsWarningMessage: '⚠️ Please keep it under 120 characters.',
+                    autoFocus: true,
+                    sendMessageSound: false,
+                    receiveMessageSound: false
+                },
+                feedback: {
+                    color: '#ff6600'
+                },
+                dateTimeToggle: {
+                    date: true,
+                    time: true
+                },
+                footer: {
+                    textColor: '#555555',
+                    text: 'Powered by',
+                    company: 'Ipage Vision',
+                    companyLink: 'https://www.ipagevision.com/'
+                }
+            }
+        }
+    })
+</script>
   </body>
 </html>
