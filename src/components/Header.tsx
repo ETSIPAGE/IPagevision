@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row md:justify-between md:items-center">
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link to="/" className="flex items-center space-x-3">
-              <img src="/images/new-logo.png.png" alt="IPage Vision Logo" className="h-8 w-auto" />
+              <img src="/images/ipagevision.png" alt="IPage Vision Logo" className="h-10 w-auto" />
             </Link>
           </div>
           <nav className={`mt-4 md:mt-0 flex flex-wrap gap-4 md:gap-8 text-lg font-semibold transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}>

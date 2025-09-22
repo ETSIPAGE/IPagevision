@@ -95,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
 
         {/* Bottom Section */}
         <div className={`pt-8 mt-8 border-t border-gray-800 flex flex-wrap justify-between items-center gap-4 transition-all duration-500 ease-out delay-[600ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <p className="text-sm">&copy; {new Date().getFullYear()} IPage Vision Visual Solutions Inc. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} IPAGEUM SERVICES PVT LTD. All rights reserved.</p>
           <div className="flex space-x-6 text-sm">
             <a href="/terms-and-conditions" className="hover:text-white">Terms & Conditions</a>
             <a href="/privacy-policy" className="hover:text-white">Privacy Policy</a>
