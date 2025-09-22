@@ -47,7 +47,9 @@ function App() {
                 <div id="about-us">
                   <Section
                     title="About Us"
+                    
                     text="IPage Vision is an elite architectural visualization studio, based in Singapore and India, and servicing clients worldwide. As a division of IPage UM Services Pvt. Ltd (IPAGE UMS), we specialize in high-end 3D renderings and immersive digital experiences. Our team of architectural designers, 3D artists, and visual storytellers is dedicated to bringing architectural concepts to life. We work closely with architects, developers, and designers, turning their ideas into stunning visual narratives that captivate and inspire. Our passion for detail and innovation ensures that each project is a true reflection of our client's vision, delivering cutting-edge, photorealistic visuals that push the boundaries of design and creativity."
+                   textAlign="justify"
                    />
                 </div>
                 <div id="our-team">
