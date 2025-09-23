@@ -39,7 +39,7 @@ function App() {
             element={
               <main>
                 <Hero
-                  imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/8.png"
+                  imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/8.jpeg"
                   superTitle="Architectural Visualization"
                   title="Bringing your vision to life"
                   actionText="Watch our showreel"
@@ -71,7 +71,7 @@ function App() {
                   <Section
                     title="Services"
                     text="We operate at the intersection of art and technology, offering a suite of visualization services tailored to diverse industries. Our services ensure that every project, regardless of its scale or complexity, is communicated with clarity, impact, and artistic integrity."
-                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/sdd.png"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/sdd.jpeg"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
