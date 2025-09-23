@@ -1,18 +1,18 @@
 import { GalleryImage, NavLinkCategory } from './types';
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-    { id: 1, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/2D.png', title: 'BTO - Tengah', subtitle: 'Living', gridClass: 'md:col-span-2 md:row-span-2' },
-  { id: 2, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/1D.png', title: 'BTO - Tengah', subtitle: 'Foyer ', gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 3, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/8.png', title: 'HDB Maisonette', subtitle: 'Living', gridClass: 'md:col-span-2 md:row-span-2' },
-  { id: 4, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/12.png', title: 'HDB Maisonette', subtitle: 'Master Bedroom ', gridClass: 'md:col-span-1 md:row-span-2' },
+    { id: 1, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/2D.jpeg', title: 'BTO - Tengah', subtitle: 'Living', gridClass: 'md:col-span-2 md:row-span-2' },
+  { id: 2, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/1D.jpeg', title: 'BTO - Tengah', subtitle: 'Foyer ', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 3, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/8.jpeg', title: 'HDB Maisonette', subtitle: 'Living', gridClass: 'md:col-span-2 md:row-span-2' },
+  { id: 4, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/12.jpeg', title: 'HDB Maisonette', subtitle: 'Master Bedroom ', gridClass: 'md:col-span-1 md:row-span-2' },
 
-  { id: 6, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Guest+Bedroom+(Bungalow).png', title: 'HDB Masionette', subtitle: 'Guest Bedroom', gridClass: 'md:col-span-2' },
-  { id: 7, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Bathroom+(HDB+M).png', title: 'HDB Masionette', subtitle: 'Kitchen', gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 8, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Kitchen+(HDB+M).png', title: 'HDB Masionette', subtitle: 'Bathroom ', gridClass: 'md:col-span-2 md:row-span-2' },
-  { id: 9, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/1.jpg', title: 'Bungalow', subtitle: 'Living', gridClass: 'md:col-span-1' },
-  { id: 10, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/gd.png', title: 'Bungalow', subtitle: 'Master Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 11, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Bedroom+(Bungalow).png', title: 'Bungalow', subtitle: 'Guest Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 12, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Dining+(Bungalow).png', title: 'Bungalow', subtitle: 'Dining Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 6, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Guest+Bedroom+(Bungalow).jpeg', title: 'HDB Masionette', subtitle: 'Guest Bedroom', gridClass: 'md:col-span-2' },
+  { id: 7, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Bathroom+(HDB+M).jpeg', title: 'HDB Masionette', subtitle: 'Kitchen', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 8, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Kitchen+(HDB+M).jpeg', title: 'HDB Masionette', subtitle: 'Bathroom ', gridClass: 'md:col-span-2 md:row-span-2' },
+  { id: 9, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/1.jpeg', title: 'Bungalow', subtitle: 'Living', gridClass: 'md:col-span-1' },
+  { id: 10, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/gd.jpeg', title: 'Bungalow', subtitle: 'Master Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 11, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Bedroom+(Bungalow).jpeg', title: 'Bungalow', subtitle: 'Guest Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 12, src: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Dining+(Bungalow).jpeg', title: 'Bungalow', subtitle: 'Dining Bedroom', gridClass: 'md:col-span-1 md:row-span-2' },
 ];
 
 export const CLIENT_LOGOS: string[] = [
