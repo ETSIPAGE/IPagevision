@@ -39,7 +39,7 @@ function App() {
             element={
               <main>
                 <Hero
-                  imageUrl="/images/8.png"
+                  imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/8.png"
                   superTitle="Architectural Visualization"
                   title="Bringing your vision to life"
                   actionText="Watch our showreel"
@@ -56,7 +56,7 @@ function App() {
                   <Section
                     title="Our Team"
                     text="Our strength lies in our diversity. We are a collective of architects, interior designers, civil engineers, artists, filmmakers and tech enthusiasts, united by a shared passion for visual storytelling. This multidisciplinary approach allows us to tackle complex challenges with a unique perspective, pushing the boundaries of what's possible in digital representation."
-                    imageUrl="/images/team.jpeg"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/team.jpeg"
                     imagePosition="left"
                   />
                 </div>
@@ -71,7 +71,7 @@ function App() {
                   <Section
                     title="Services"
                     text="We operate at the intersection of art and technology, offering a suite of visualization services tailored to diverse industries. Our services ensure that every project, regardless of its scale or complexity, is communicated with clarity, impact, and artistic integrity."
-                    imageUrl="/images/sdd.png"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/sdd.png"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
@@ -100,7 +100,7 @@ function App() {
                   <Section
                     title="Workflow"
                     text="Our workflow is designed to ensure seamless collaboration, transparency, and efficiency at every stage of your project. From initial consultation to final delivery, we keep you informed and involved, making the process smooth and enjoyable."
-                    imageUrl="/images/Newsletter.jpeg"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/Newsletter.jpeg"
                     imagePosition="right"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 mt-8">
@@ -123,7 +123,7 @@ function App() {
                   <Section
                     title="Join Our Team"
                     text="We are always looking for passionate and talented individuals to join our growing team. If you are driven by creativity, innovation, and a desire to create exceptional work, we would love to hear from you. Explore our open positions and discover a community where you can thrive."
-                    imageUrl="/images/Join Our Team.jpeg"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/Join+Our+Team.jpeg"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
@@ -140,7 +140,7 @@ function App() {
                   <Section
                     title="IPage Vision Academy"
                     text="The Academy is our commitment to the next generation of digital artists. Through mentorship, workshops, and intensive training programs, we cultivate emerging talent and provide a platform for creative exploration. It's our way of giving back to the community and investing in the future of our craft."
-                    imageUrl="/images/IPage Vision Academy.jpeg"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/IPage+Vision+Academy.jpeg"
                     imagePosition="right"
                   />
                 </div>
@@ -148,7 +148,7 @@ function App() {
                   <Section
                     title="Our Partners"
                     text="Collaboration is at the heart of innovation. We are proud to partner with industry leaders in technology and software who share our commitment to excellence. Together, we develop and utilize cutting-edge tools that empower artists and designers worldwide."
-                    imageUrl="/images/Our Partners.jpeg"
+                    imageUrl="https://ipagevision.s3.ap-south-1.amazonaws.com/Our+Partners.jpeg"
                     imagePosition="left"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
