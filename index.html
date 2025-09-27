@@ -38,187 +38,321 @@
   <body class="bg-black text-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
-     <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-    Chatbot.init({
-        chatflowid: "06ccf2da-b418-40d3-ac15-173e35283802",
-        apiHost: "https://srv1006227.hstgr.cloud",
-        theme: {
-            button: {
-                backgroundColor: '#ff6600',
-                right: 20,
-                bottom: 20,
-                size: 52,
-                dragAndDrop: false,
-                iconColor: 'white',
-                customIconSrc: './images/logo.png',
-                autoWindowOpen: {
-                    autoOpen: true,
-                    openDelay: 2,
-                    autoOpenOnMobile: false
-                },
-                borderRadius: 50,
-                boxShadow: '0 4px 14px rgba(0,0,0,0.25)'
-            },
-            tooltip: {
-                showTooltip: true,
-                tooltipMessage: 'Hi there 👋 Need help?',
-                tooltipBackgroundColor: '#ff6600',
-                tooltipTextColor: '#ffffff',
-                tooltipFontSize: 14,
-                borderRadius: 4,
-                fontFamily: 'Segoe UI, Helvetica Neue, Arial, sans-serif'
-            },
-            disclaimer: {
-                title: 'Disclaimer',
-                message: "By using this chatbot, you agree to the <a target=\"_blank\" href=\"https://flowiseai.com/terms\">Terms & Conditions</a>",
-                textColor: '#000000',
-                buttonColor: '#ff6600',
-                buttonText: 'Start Chatting',
-                buttonTextColor: 'white',
-                blurredBackgroundColor: 'rgba(0, 0, 0, 0.5)',
-                backgroundColor: 'white',
-                borderRadius: 8,
-                fontFamily: 'Segoe UI, Helvetica Neue, Arial, sans-serif'
-            },
-            customCSS: `
-                * {
-                    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-                }
-                .flowise-chat-window {
-                    border: 1px solid #e5e5e5;
-                    border-radius: 12px;
-                    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-                    overflow: hidden;
-                    transition: all 0.3s ease-in-out;
-                     width: 25vw !important;
-                     height: 75vh !important;
-                    min-width: 350px !important;  /* keep readable */
-                    max-width: 420px !important;  /* avoid oversized */
-                    bottom: 20px !important;
-                    right: 20px !important;
-                    border-radius: 12px !important;
-                }
-                .flowise-chat-window .flowise-header {
-                    background-color: #000000;
-                    color: #ffffff;
-                    font-size: 18px;
-                    font-weight: 600;
-                    padding: 12px;
-                }
-                .flowise-bot-message {
-                    background-color: #f9f9f9;
-                    color: #1c1c1c;
-                    font-size: 15px;
-                    border-radius: 10px;
-                }
-                .flowise-user-message {
-                    background-color: #ff6600;
-                    color: #ffffff;
-                    font-size: 15px;
-                    border-radius: 10px;
-                }
-                .flowise-chat-window .flowise-input-area input {
-                    border: 1px solid #ddd;
-                    border-radius: 6px;
-                    padding: 8px;
-                    font-size: 15px;
-                }
-                .flowise-chat-window .flowise-send-btn {
-                    background-color: #ff6600;
-                    color: white;
-                    border-radius: 6px;
-                    padding: 0 16px;
-                    margin-left: 8px;
-                }
+    <script type="module">
+     (function autoCalcHeaderSafe() {
+       const computeHeaderSafe = () => {
+       const selectors = ['header', 'nav', '.site-header', '#header', '.header', '.topbar', '.navbar', '#main-header'];
+       let headerEl = null;
+       for (const s of selectors) {
+         const found = document.querySelector(s);
+         if (found) { headerEl = found; break; }
+       }
+      const basePadding = 12;
+      let safe = 100;
+      if (headerEl) {
+        const r = headerEl.getBoundingClientRect();
+        safe = Math.min(Math.max(r.height + basePadding, 56), Math.round(window.innerHeight * 0.4));
+      } else {
+        const fixedTop = Array.from(document.querySelectorAll('*')).find(el => {
+          const st = getComputedStyle(el);
+          return (st.position === 'fixed' || st.position === 'sticky') && el.getBoundingClientRect().top <= 8 && el.offsetHeight > 20;
+        });
+        if (fixedTop) safe = Math.min(Math.max(fixedTop.offsetHeight + basePadding, 56), Math.round(window.innerHeight * 0.4));
+      }
+      const finalSafe = Math.min(Math.max(safe, 56), Math.round(window.innerHeight * 0.4));
+      document.documentElement.style.setProperty('--HEADER_SAFE', finalSafe + 'px');
+    };
 
-                /* Tablets */
-                @media (max-width: 1024px) {
-                    .flowise-chat-window {
-                        width: 40vw !important;
-                        height: 70vh !important;
-                        bottom: 15px !important;
-                        right: 15px !important;
-                    }
-                }
+    computeHeaderSafe();
+    let t;
+    window.addEventListener('resize', () => {
+      clearTimeout(t);
+      t = setTimeout(computeHeaderSafe, 120);
+    });
 
-                /* Large Phones */
-                @media (max-width: 768px) {
-                    .flowise-chat-window {
-                        width: 80vw !important;
-                        height: 70vh !important;
-                        bottom: 10px !important;
-                        right: 10px !important;
-                    }
-                }
+    const mo = new MutationObserver(() => computeHeaderSafe());
+    mo.observe(document.body, { subtree: true, childList: true, attributes: true });
+    window.recalcHeaderSafe = computeHeaderSafe;
+  })();
 
-                /* Small Phones */
-                @media (max-width: 480px) {
-                    .flowise-chat-window {
-                        width: 100% !important;
-                        height: 80vh !important;
-                        left: 0 !important;
-                        right: 0 !important;
-                        bottom: 0 !important;
-                        border-radius: 0 !important;
-                    }
-                }
-            `,
-            chatWindow: {
-                showTitle: true,
-                showAgentMessages: true,
-                title: 'IPage Vision Assistant',
-                titleAvatarSrc: './images/logo.png',
-                welcomeMessage: '👋 Hello! How can we help you today?',
-                errorMessage: '⚠️ Something went wrong, please try again.',
-                backgroundColor: '#ffffff',
-                backgroundImage: '',
-                height: 550,
-                width: 450,
-                fontSize: 15,
-                starterPromptFontSize: 14,
-                clearChatOnReload: false,
-                sourceDocsTitle: 'Sources:',
-                renderHTML: true,
-                botMessage: {
-                    backgroundColor: '#f9f9f9',
-                    textColor: '#1c1c1c',
-                    showAvatar: true,
-                    avatarSrc: './images/logo.png'
-                },
-                userMessage: {
-                    backgroundColor: '#ff6600',
-                    textColor: '#ffffff',
-                    showAvatar: true,
-                    avatarSrc: './images/profile1.png'
-                },
-                textInput: {
-                    placeholder: 'Type your question...',
-                    backgroundColor: '#ffffff',
-                    textColor: '#1c1c1c',
-                    sendButtonColor: '#ff6600',
-                    maxChars: 120,
-                    maxCharsWarningMessage: '⚠️ Please keep it under 120 characters.',
-                    autoFocus: true,
-                    sendMessageSound: false,
-                    receiveMessageSound: false
-                },
-                feedback: {
-                    color: '#ff6600'
-                },
-                dateTimeToggle: {
-                    date: true,
-                    time: true
-                },
-                footer: {
-                    textColor: '#555555',
-                    text: 'Powered by',
-                    company: 'IPage UMS',
-                    companyLink: 'https://ipageums.com/'
-                }
-            }
+  (function injectOverrideCSS() {
+    const css = `
+      :root { --HEADER_SAFE: 100px; }
+
+      /* high priority overrides for Flowise widget */
+      .flowise-chat-window {
+        position: fixed !important;
+        right: 20px !important;
+        bottom: 20px !important;
+        top: auto !important;
+        z-index: 2147483647 !important;
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        box-shadow: 0 18px 50px rgba(16,24,40,0.25) !important;
+        width: clamp(300px, 22vw, 380px) !important;
+        min-width: 280px !important;
+        max-width: 420px !important;
+
+        /* height = clamp(min, viewport minus header, max) */
+        height: clamp(260px, calc(100vh - var(--HEADER_SAFE) - 32px), 85vh) !important;
+        max-height: calc(100vh - var(--HEADER_SAFE) - 12px) !important;
+        min-height: 240px !important;
+
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), #ffffff) !important;
+        transition: transform .26s cubic-bezier(.2,.9,.2,1), opacity .22s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      /* rounded header top corners */
+      .flowise-chat-window .flowise-header {
+        border-top-left-radius: 18px !important;
+        border-top-right-radius: 18px !important;
+        background-color: #0b0b0b !important;
+        color: #fff !important;
+      }
+
+      /* rounded bottom for footer/input area */
+      .flowise-chat-window .flowise-footer,
+      .flowise-chat-window .flowise-input-area {
+        border-bottom-left-radius: 18px !important;
+        border-bottom-right-radius: 18px !important;
+      }
+
+      /* make chat body flexible and scrollable so input remains visible */
+      .flowise-chat-window .flowise-chat-body {
+        flex: 1 1 auto !important;
+        overflow-y: auto !important;
+        padding: 12px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* message bubbles - modern rounded look */
+      .flowise-bot-message {
+        background: #f7f7f8 !important;
+        color: #111827 !important;
+        border-radius: 12px !important;
+        padding: 10px 12px !important;
+        margin-bottom: 10px !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+      }
+      .flowise-user-message {
+        background: #ff6600 !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+        padding: 10px 12px !important;
+        margin-bottom: 10px !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+      }
+
+      /* input */
+      .flowise-chat-window .flowise-input-area {
+        display: flex !important;
+        gap: 8px !important;
+        padding: 12px !important;
+        align-items: center !important;
+        background: transparent !important;
+      }
+      .flowise-chat-window .flowise-input-area input {
+        border-radius: 12px !important;
+        border: 1px solid #e6e6e6 !important;
+        padding: 12px !important;
+        font-size: 14px !important;
+      }
+      .flowise-chat-window .flowise-send-btn {
+        background: #ff6600 !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+        width: 46px !important;
+        height: 46px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* hide avatars everywhere */
+      .flowise-bot-message .flowise-avatar,
+      .flowise-user-message .flowise-avatar,
+      .flowise-header .flowise-avatar,
+      .flowise-chat-window .flowise-message .flowise-avatar,
+      .flowise-chat-window .flowise-avatar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+      }
+
+      /* responsiveness tweaks */
+      @media (max-width: 1024px) {
+        .flowise-chat-window {
+          width: clamp(320px, 40vw, 560px) !important;
+          right: 16px !important;
+          bottom: 14px !important;
         }
-    })
+      }
+      @media (max-width: 768px) {
+        .flowise-chat-window {
+          width: 86vw !important;
+          right: 10px !important;
+          bottom: 10px !important;
+          left: auto !important;
+          min-width: unset !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .flowise-chat-window {
+          width: 100% !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          height: calc(100vh - 56px) !important;
+          max-height: calc(100vh - 56px) !important;
+          border-radius: 0 !important;
+        }
+        .flowise-chat-window .flowise-header { padding: 10px !important; font-size: 16px !important; }
+        .flowise-chat-window .flowise-input-area input { font-size: 14px !important; padding: 9px !important; }
+      }
+
+      /* tiny height screens: reduce paddings so input stays visible */
+      @media (max-height: 700px) {
+        .flowise-chat-window { height: min(78vh, calc(100vh - var(--HEADER_SAFE) - 8px)) !important; }
+        .flowise-chat-window .flowise-header { padding: 8px !important; font-size: 15px !important; }
+        .flowise-chat-window .flowise-input-area,
+        .flowise-chat-window .flowise-footer { padding: 8px !important; }
+        .flowise-chat-window .flowise-chat-body { padding: 8px !important; }
+      }
+    `;
+    const style = document.createElement('style');
+    style.setAttribute('id', 'flowise-custom-overrides');
+    style.innerHTML = css;
+    document.head.appendChild(style);
+  })();
+
+  (function forceApplyInline() {
+    const apply = () => {
+      const el = document.querySelector('.flowise-chat-window');
+      if (!el) return;
+      if (el.dataset.__customStyled === '1') return;
+      Object.assign(el.style, {
+        position: 'fixed',
+        right: '20px',
+        bottom: '20px',
+        top: 'auto',
+        zIndex: '2147483647',
+        borderRadius: '18px',
+        overflow: 'hidden',
+        boxSizing: 'border-box'
+      });
+      el.dataset.__customStyled = '1';
+    };
+
+    const poll = setInterval(() => {
+      apply();
+      if (document.querySelector('.flowise-chat-window') && document.querySelector('.flowise-chat-window').dataset.__customStyled === '1') {
+        clearInterval(poll);
+      }
+    }, 160);
+
+    window.addEventListener('load', () => setTimeout(apply, 140));
+    const mo = new MutationObserver(() => apply());
+    mo.observe(document.body, { subtree: true, childList: true });
+  })();
+
+  import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
+
+  Chatbot.init({
+    chatflowid: "06ccf2da-b418-40d3-ac15-173e35283802",
+    apiHost: "https://srv1006227.hstgr.cloud",
+    theme: {
+      button: {
+        backgroundColor: '#ff6600',
+        right: 20,
+        bottom: 20,
+        size: 52,
+        dragAndDrop: false,
+        iconColor: 'white',
+        customIconSrc: './images/logo.png',
+        autoWindowOpen: {
+          autoOpen: true,
+          openDelay: 2,
+          autoOpenOnMobile: false
+        },
+        borderRadius: 50,
+        boxShadow: '0 4px 14px rgba(0,0,0,0.25)'
+      },
+      tooltip: {
+        showTooltip: true,
+        tooltipMessage: 'Hi there 👋 Need help?',
+        tooltipBackgroundColor: '#ff6600',
+        tooltipTextColor: '#ffffff',
+        tooltipFontSize: 14,
+        borderRadius: 4,
+        fontFamily: 'Segoe UI, Helvetica Neue, Arial, sans-serif'
+      },
+      disclaimer: {
+        title: 'Disclaimer',
+        message: "By using this chatbot, you agree to the <a target=\"_blank\" href=\"https://flowiseai.com/terms\">Terms & Conditions</a>",
+        textColor: '#000000',
+        buttonColor: '#ff6600',
+        buttonText: 'Start Chatting',
+        buttonTextColor: 'white',
+        blurredBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'white',
+        borderRadius: 8,
+        fontFamily: 'Segoe UI, Helvetica Neue, Arial, sans-serif'
+      },
+
+      customCSS: `
+        :root { --HEADER_SAFE: 100px; }
+        .flowise-chat-window { border-radius: 18px; }
+        .flowise-chat-window .flowise-header { border-top-left-radius: 18px; border-top-right-radius: 18px; }
+        .flowise-chat-window .flowise-footer, .flowise-chat-window .flowise-input-area { border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; }
+        /* hide avatars via config *and* CSS */
+      `,
+
+      chatWindow: {
+        showTitle: true,
+        showAgentMessages: true,
+        title: 'IPage Vision Assistant',
+        titleAvatarSrc: './images/logo.png',
+        welcomeMessage: '👋 Hello! How can we help you today?',
+        errorMessage: '⚠️ Something went wrong, please try again.',
+        backgroundColor: '#ffffff',
+        backgroundImage: '',
+        height: 650,
+        width: 400,
+        fontSize: 15,
+        starterPromptFontSize: 14,
+        clearChatOnReload: false,
+        sourceDocsTitle: 'Sources:',
+        renderHTML: true,
+        botMessage: { backgroundColor: '#f9f9f9', textColor: '#1c1c1c', showAvatar: false },
+        userMessage: { backgroundColor: '#ff6600', textColor: '#ffffff', showAvatar: false },
+        textInput: {
+          placeholder: 'Type your question...',
+          backgroundColor: '#ffffff',
+          textColor: '#1c1c1c',
+          sendButtonColor: '#ff6600',
+          maxChars: 120,
+          maxCharsWarningMessage: '⚠️ Please keep it under 120 characters.',
+          autoFocus: true,
+          sendMessageSound: false,
+          receiveMessageSound: false
+        },
+        feedback: { color: '#ff6600' },
+        dateTimeToggle: { date: true, time: true },
+        footer: {
+          textColor: '#555555',
+          text: 'Powered by',
+          company: 'IPage UMS',
+          companyLink: 'https://ipageums.com/'
+        }
+      }
+    }
+  });
 </script>
   </body>
 </html>
