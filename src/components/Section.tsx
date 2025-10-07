@@ -7,15 +7,29 @@ interface SectionProps {
   children?: React.ReactNode;
   imageUrl?: string;
   imagePosition?: 'left' | 'right';
+  textAlign?: 'left' | 'right' | 'center' | 'justify'; // Optional override
 }
 
-const Section: React.FC<SectionProps> = ({ title, text, children, imageUrl, imagePosition = 'left' }) => {
+const Section: React.FC<SectionProps> = ({ 
+  title, 
+  text, 
+  children, 
+  imageUrl, 
+  imagePosition = 'left',
+  textAlign // No default, we'll handle it in the style
+}) => {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2, triggerOnce: true });
+
+  // Default to justify for all sections, but allow override
+  const appliedTextAlign = textAlign || 'justify';
 
   const textContent = (
     <div className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-x-0' : `opacity-0 ${imagePosition === 'left' || !imageUrl ? 'translate-x-8' : '-translate-x-8'}`}`}>
       <h2 className="text-3xl font-semibold text-white mb-6">{title}</h2>
-      <p className="text-xl text-gray-300 leading-relaxed">
+      <p 
+        className="text-xl text-gray-300 leading-relaxed"
+        style={{ textAlign: appliedTextAlign }}
+      >
         {text}
       </p>
       {children && <div className="mt-8">{children}</div>}
@@ -54,7 +68,10 @@ const Section: React.FC<SectionProps> = ({ title, text, children, imageUrl, imag
             <h2 className="text-3xl font-semibold text-white">{title}</h2>
           </div>
           <div className={`md:col-span-2 transition-all duration-500 ease-out delay-150 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p 
+              className="text-xl text-gray-300 leading-relaxed"
+              style={{ textAlign: appliedTextAlign }}
+            >
               {text}
             </p>
             {children && <div className="mt-8">{children}</div>}
