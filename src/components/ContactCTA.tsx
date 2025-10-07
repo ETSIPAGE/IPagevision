@@ -12,20 +12,42 @@ const ContactCTA: React.FC = () => {
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 1500);  // Reset after 1.5 seconds
-    setForm({ name: '', email: '', phone: '', message: '' });
+
+    try {
+      // Send form data to API Gateway
+      const response = await fetch('https://gkjdt4mik8.execute-api.ap-south-1.amazonaws.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setForm({ name: '', email: '', phone: '', message: '' });
+        alert('Form submitted successfully!');
+      } else {
+        setErrorMessage(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage('Failed to submit the form. Please try again later.');
+    }
   };
 
- const whatsappLink = `https://wa.me/6590903217?text=Hi, I'm interested in your services.`;
-
+  const whatsappLink = `https://wa.me/6590903217?text=Hi, I'm interested in your services.`;
 
   return (
     <section ref={ref} className="bg-black py-16 px-6 md:px-12 lg:px-24">
@@ -45,8 +67,7 @@ const ContactCTA: React.FC = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center bg-green-700 text-white px-4 py-2 font-semibold hover:bg-green-800 transition-all duration-700 ease-out delay-300 w-auto justify-center rounded-lg"
               >
-                {/* Increased Icon Size */}
-                <FaWhatsapp className="mr-2 text-2xl" /> {/* Larger WhatsApp Icon */}
+                <FaWhatsapp className="mr-2 text-2xl" />
                 <span className="text-lg">Contact via WhatsApp</span>
               </a>
             </div>
@@ -116,6 +137,7 @@ const ContactCTA: React.FC = () => {
                 >
                   Submit
                 </button>
+                {errorMessage && <div className="text-red-500 text-center">{errorMessage}</div>}
               </form>
             )}
           </div>
