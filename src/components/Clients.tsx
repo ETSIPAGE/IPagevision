@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 interface ClientsProps {
-  logos: string[];
+  logos: { src: string; size?: string }[];
 }
 
 const Clients: React.FC<ClientsProps> = ({ logos }) => {
@@ -21,17 +21,18 @@ const Clients: React.FC<ClientsProps> = ({ logos }) => {
             </p>
           </div>
         </div>
+
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-8 gap-y-12">
           {logos.map((logo, index) => (
-            <div 
+            <div
               key={index}
               className={`flex items-center justify-center transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: `${200 + index * 40}ms` }}
             >
-              <img 
-                src={logo} 
-                alt={`Client logo ${index + 1}`} 
-                className="h-12 w-auto object-contain opacity-80 hover:opacity-100 cursor-pointer transition-opacity duration-300"
+              <img
+                src={logo.src}
+                alt={`Client logo ${index + 1}`}
+                className={`object-contain opacity-80 hover:opacity-100 cursor-pointer transition-opacity duration-300 ${logo.size || 'h-12'}`}
               />
             </div>
           ))}

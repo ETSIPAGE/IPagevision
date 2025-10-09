@@ -130,7 +130,7 @@ function App() {
                     <Section
                       title="Workflow"
                       text="Our workflow is designed to ensure seamless collaboration, transparency, and efficiency at every stage of your project. From initial consultation to final delivery, we keep you informed and involved, making the process smooth and enjoyable."
-                      imageUrl="/images/Newsletter.jpeg"
+                      imageUrl="/images/Workflow.jpeg"
                       imagePosition="right"
                     >
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 mt-8">
@@ -181,11 +181,7 @@ function App() {
                       imageUrl="/images/Our Partners.jpeg"
                       imagePosition="left"
                     >
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
-                        <SubSection id="partners-edigital" title="Edigital">
-                          Pioneering digital solutions that redefine the boundaries of creative expression.
-                        </SubSection>
-                      </div>
+                      
                     </Section>
                   </div>
                   <div id="contact">
