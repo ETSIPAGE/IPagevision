@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { FaWhatsapp } from 'react-icons/fa';  // Import WhatsApp icon from react-icons
+import { FaInstagram, FaFacebook, FaXTwitter, FaLinkedin, FaYoutube, FaWhatsapp } from 'react-icons/fa6'; // Added social icons
 
 const ContactCTA: React.FC = () => {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3, triggerOnce: true });
@@ -24,8 +24,7 @@ const ContactCTA: React.FC = () => {
     setForm({ name: '', email: '', phone: '', message: '' });
   };
 
- const whatsappLink = `https://wa.me/6590903217?text=Hi, I'm interested in your services.`;
-
+  const whatsappLink = `https://wa.me/6590903217?text=Hi, I'm interested in your services.`;
 
   return (
     <section ref={ref} className="bg-black py-16 px-6 md:px-12 lg:px-24">
@@ -45,9 +44,60 @@ const ContactCTA: React.FC = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center bg-green-700 text-white px-4 py-2 font-semibold hover:bg-green-800 transition-all duration-700 ease-out delay-300 w-auto justify-center rounded-lg"
               >
-                {/* Increased Icon Size */}
-                <FaWhatsapp className="mr-2 text-2xl" /> {/* Larger WhatsApp Icon */}
+                <FaWhatsapp className="mr-2 text-2xl" />
                 <span className="text-lg">Contact via WhatsApp</span>
+              </a>
+            </div>
+
+            {/* Spacer: Adds vertical space between WhatsApp button and social links */}
+            <div className="h-6"></div> {/* Add this line for spacing */}
+
+            {/* Social Media Links - Further Below WhatsApp Button */}
+            <div className="flex justify-center space-x-4">
+              <a
+                href="https://www.instagram.com/ipagevision"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={28} /> {/* Increased size */}
+              </a>
+              <a
+                href="https://facebook.com/ipagevision"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <FaFacebook size={28} /> {/* Increased size */}
+              </a>
+              <a
+                href="https://x.com/ipagevision"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Twitter/X"
+              >
+                <FaXTwitter size={28} /> {/* Increased size */}
+              </a>
+              <a
+                href="https://www.linkedin.com/company/ipagevision/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={28} /> {/* Increased size */}
+              </a>
+              <a
+                href="https://www.youtube.com/@IPageVision"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="YouTube"
+              >
+                <FaYoutube size={28} /> {/* Increased size */}
               </a>
             </div>
           </div>
