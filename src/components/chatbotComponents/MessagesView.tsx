@@ -11,7 +11,7 @@ interface MessagesViewProps {
     isGenerating: boolean;
 }
 
-const ASSEMBLYAI_API_KEY = '732f5d0f1132483ca785ad8df69d7a11';
+const ASSEMBLYAI_API_KEY = import.meta.env.VITE_ASSEMBLYAI_TOKEN;
 
 const MessagesView: React.FC<MessagesViewProps> = ({ conversation, onSendMessage, isGenerating }) => {
     const [input, setInput] = useState('');
