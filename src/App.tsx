@@ -190,7 +190,7 @@ function App() {
                   <Newsletter />
                 </main>
                 <Footer links={NAV_LINKS} />
-                <ChatbotWhole />
+               
               </>
 
             }

@@ -306,7 +306,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isOpen, onClose, conversations,
             <button onClick={() => setActiveConversationId(null)} className="mr-2 p-1 rounded-full hover:bg-gray-100">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <img src="src/components/chatbotComponents/logochatbot.svg" alt="IPage Vision Logo" className="w-8 h-8 rounded-md mr-3 flex-shrink-0" />
+            <img src="\src\components\chatbotComponents\logochatbot.svg" alt="IPage Vision Logo" className="w-8 h-8 rounded-md mr-3 flex-shrink-0" />
             <div className="overflow-hidden">
               <h2 className="font-bold text-base text-gray-800 truncate">{activeConversation?.title || 'IPage Vision Assistant'}</h2>
               <p className="text-xs text-gray-500">The team can also help</p>
