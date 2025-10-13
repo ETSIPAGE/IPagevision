@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IPage Vision</title>
-  <link rel="icon" type="image/png" href="/images/logo.png" />
+    <title>IPage Vision + Customer Support Chat</title>
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -13,30 +15,56 @@
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
             },
+            colors: {
+              'brand-orange': '#f97316',
+              'brand-orange-dark': '#ea580c',
+              'brand-secondary': '#0033a1',
+            }
           },
         },
       }
     </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (chat widget icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Import map for modules -->
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "date-fns": "https://aistudiocdn.com/date-fns@^4.1.0",
+    "emoji-picker-react": "https://aistudiocdn.com/emoji-picker-react@^4.10.0",
+    "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.44.4/+esm",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+
+    <!-- Smooth scroll -->
     <style>
       html {
         scroll-behavior: smooth;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1"
-  }
-}
-</script>
-</head>
+
+    <!-- Main project CSS -->
+    <link rel="stylesheet" href="/index.css">
+  </head>
+
   <body class="bg-black text-white">
+    <!-- Main app root -->
     <div id="root"></div>
+
+    <!-- Load main TSX -->
     <script type="module" src="/index.tsx"></script>
     <!-- <script type="module">
      (function autoCalcHeaderSafe() {

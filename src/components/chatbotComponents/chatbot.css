@@ -1,0 +1,36 @@
+/* ComponentFont.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.interFont {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  /* Font stack */
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  /* Font styling */
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-stretch: 100%;
+  font-variation-settings: normal;
+  font-feature-settings: normal;
+
+  /* Text styling */
+  color: rgb(247, 247, 247);
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  text-indent: 0px;
+
+  /* Background */
+  background-color: rgba(0, 0, 0, 0);
+
+  /* Spacing and layout (optional) */
+  line-height: normal;
+}

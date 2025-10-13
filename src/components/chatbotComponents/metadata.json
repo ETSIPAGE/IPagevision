@@ -1,0 +1,7 @@
+{
+  "name": "Customer Support Chat Widget",
+  "description": "An interactive chat widget for customer support, news, and help articles, styled with a modern and brand-aligned interface.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
