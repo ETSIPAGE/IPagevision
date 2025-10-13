@@ -14,6 +14,7 @@ import TermsAndConditions from './components/TermsAndConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import SubSection from './components/SubSection';
 import AdminDashboard from './components/AdminDashboard'; // 👈 Added
+import ChatbotWhole from './components/chatbotComponents/ChatbotWhole';
 import { GALLERY_IMAGES, CLIENT_LOGOS, NAV_LINKS } from './constants';
 
 function App() {
@@ -28,9 +29,8 @@ function App() {
     <Router>
       <Loader isLoading={isLoading} />
       <div
-        className={`bg-black text-white font-sans antialiased transition-opacity duration-300 ${
-          isLoading ? 'opacity-0' : 'opacity-100'
-        }`}
+        className={`bg-black text-white font-sans antialiased transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'
+          }`}
       >
         <Routes>
           {/* Admin route — standalone, no header/footer */}
@@ -181,7 +181,7 @@ function App() {
                       imageUrl="/images/Our Partners.jpeg"
                       imagePosition="left"
                     >
-                      
+
                     </Section>
                   </div>
                   <div id="contact">
@@ -190,7 +190,9 @@ function App() {
                   <Newsletter />
                 </main>
                 <Footer links={NAV_LINKS} />
+                <ChatbotWhole />
               </>
+
             }
           />
         </Routes>
