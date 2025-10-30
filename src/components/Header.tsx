@@ -10,6 +10,7 @@ const Header: React.FC = () => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+    
   }, []);
 
   return (
@@ -47,24 +48,27 @@ const Header: React.FC = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-8 text-lg font-semibold text-black">
-          <a href="#about-us" className="hover:text-orange-400 transition-colors">About us</a>
-          <a href="#works" className="hover:text-orange-400 transition-colors">Projects</a>
-          <a href="#services" className="hover:text-orange-400 transition-colors">Services</a>
-          <a href="#workflow" className="hover:text-orange-400 transition-colors">Workflow</a>
-          <a href="#clients" className="hover:text-orange-400 transition-colors">Clients</a>
-          <a href="#contact" className="hover:text-orange-400 transition-colors">Contact</a>
+          <Link to="/#about-us" className="hover:text-orange-400 transition-colors">About us</Link>
+          <Link to="/#works" className="hover:text-orange-400 transition-colors">Projects</Link>
+          <Link to="/360" className="hover:text-orange-400 transition-colors">360° Walkthrough</Link>
+          <Link to="/#services" className="hover:text-orange-400 transition-colors">Services</Link>
+          
+          <Link to="/#workflow" className="hover:text-orange-400 transition-colors">Workflow</Link>
+          <Link to="/#clients" className="hover:text-orange-400 transition-colors">Clients</Link>
+          <Link to="/#contact" className="hover:text-orange-400 transition-colors">Contact</Link>
         </nav>
       </div>
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-md text-black flex flex-col items-center py-4 space-y-4 text-lg font-semibold">
-          <a href="#about-us" onClick={() => setIsMenuOpen(false)}>About us</a>
-          <a href="#works" onClick={() => setIsMenuOpen(false)}>Projects</a>
-          <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-          <a href="#workflow" onClick={() => setIsMenuOpen(false)}>Workflow</a>
-          <a href="#clients" onClick={() => setIsMenuOpen(false)}>Clients</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          <Link to="/#about-us" onClick={() => setIsMenuOpen(false)}>About us</Link>
+          <Link to="/#works" onClick={() => setIsMenuOpen(false)}>Projects</Link>
+          <Link to="/#services" onClick={() => setIsMenuOpen(false)}>Services</Link>
+          <Link to="/360" onClick={() => setIsMenuOpen(false)}>360° project</Link>
+          <Link to="/#workflow" onClick={() => setIsMenuOpen(false)}>Workflow</Link>
+          <Link to="/#clients" onClick={() => setIsMenuOpen(false)}>Clients</Link>
+          <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
         </div>
       )}
     </header>
