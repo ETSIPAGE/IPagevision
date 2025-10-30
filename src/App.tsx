@@ -1,6 +1,6 @@
 // src/App.tsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
@@ -16,6 +16,29 @@ import SubSection from './components/SubSection';
 import AdminDashboard from './components/AdminDashboard'; // 👈 Added
 import ChatbotWhole from './components/chatbotComponents/ChatbotWhole';
 import { GALLERY_IMAGES, CLIENT_LOGOS, NAV_LINKS } from './constants';
+import Project360 from './components/Project360';
+
+// Scroll to anchor on hash change across routes with fixed header offset
+function ScrollToHash() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      // wait for route content to render
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const headerOffset = 64; // matches pt-16 in main
+          const y = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.pathname, location.hash]);
+  return null;
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +51,7 @@ function App() {
   return (
     <Router>
       <Loader isLoading={isLoading} />
+      <ScrollToHash />
       <div
         className={`bg-black text-white font-sans antialiased transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'
           }`}
@@ -56,6 +80,18 @@ function App() {
                 <Header />
                 <main className="pt-16">
                   <PrivacyPolicy />
+                </main>
+                <Footer links={NAV_LINKS} />
+              </>
+            }
+          />
+          <Route
+            path="/360"
+            element={
+              <>
+                <Header />
+                <main className="pt-16">
+                  <Project360 />
                 </main>
                 <Footer links={NAV_LINKS} />
               </>
@@ -190,9 +226,8 @@ function App() {
                   <Newsletter />
                 </main>
                 <Footer links={NAV_LINKS} />
-               
+               <ChatbotWhole />
               </>
-
             }
           />
         </Routes>
