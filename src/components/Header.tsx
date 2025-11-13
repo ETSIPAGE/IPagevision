@@ -22,11 +22,13 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12 py-2 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img
-            src="/images/ipagevisionlogo.png"
-            alt="IPage Vision Logo"
-            className="h-16 w-auto"
-          />
+        <img
+  src="/images/ipagevisionlogonew.png"
+  alt="IPage Vision Logo"
+  className="h-16 w-auto scale-150 origin-left"
+
+ />
+
         </Link>
 
         {/* Hamburger Icon (Mobile) */}
