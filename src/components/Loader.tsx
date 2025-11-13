@@ -26,11 +26,12 @@ const Loader: React.FC<LoaderProps> = ({ isLoading }) => {
           }}
         ></div>
         <img
-          src="/images/ipagevision.png"
-          alt="IPage Vision Logo"
-          className="w-48 h-48 object-contain animate-pulse drop-shadow-lg relative"
-          style={{ filter: 'drop-shadow(0 0 24px #00ffff88)', zIndex: 1 }}
-        />
+  src="/images/ipagevisionlogonew.png"
+  alt="IPage Vision Logo"
+  className="w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 object-contain animate-pulse drop-shadow-lg relative"
+  style={{ filter: 'drop-shadow(0 0 24px #00ffff88)', zIndex: 1 }}
+/>
+
         <style>{`
           @keyframes glowPulse {
             0% { opacity: 0.7; }
