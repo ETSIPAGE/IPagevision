@@ -66,7 +66,7 @@ const Header: React.FC = () => {
           <Link to="/#about-us" onClick={() => setIsMenuOpen(false)}>About us</Link>
           <Link to="/#works" onClick={() => setIsMenuOpen(false)}>Projects</Link>
           <Link to="/#services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-          <Link to="/360" onClick={() => setIsMenuOpen(false)}>360° project</Link>
+          <Link to="/360" onClick={() => setIsMenuOpen(false)}>360°Viz</Link>
           <Link to="/#workflow" onClick={() => setIsMenuOpen(false)}>Workflow</Link>
           <Link to="/#clients" onClick={() => setIsMenuOpen(false)}>Clients</Link>
           <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
