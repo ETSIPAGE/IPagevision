@@ -30,7 +30,7 @@ const Project360: React.FC = () => {
     <div className="container mx-auto px-6 md:px-12 py-8 text-white">
       {!activeUrl && (
         <>
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">360° Project</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">360°Viz</h1>
           <p className="text-gray-300 mb-10">Choose a project to open an immersive 360° experience.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROJECTS.map((p) => (

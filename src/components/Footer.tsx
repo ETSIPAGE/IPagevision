@@ -45,12 +45,13 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
 
         {/* Navigation links */}
         <ul className="mb-8"> {/* Added margin bottom for spacing */}
-          <li className="mb-2"><a href="#about-us" className="hover:text-white">About us</a></li>
-          <li className="mb-2"><a href="#works" className="hover:text-white">Projects</a></li>
-          <li className="mb-2"><a href="#services" className="hover:text-white">Services</a></li>
-          <li className="mb-2"><a href="#workflow" className="hover:text-white">Workflow</a></li>
-          <li className="mb-2"><a href="#clients" className="hover:text-white">Clients</a></li>
-          <li className="mb-2"><a href="#contact" className="hover:text-white">Contact</a></li>
+          <li className="mb-2"><a href="/#about-us" className="hover:text-white">About us</a></li>
+          <li className="mb-2"><a href="/#works" className="hover:text-white">Projects</a></li>
+          <li className="mb-2"><a href="/360" className="hover:text-white">360°Viz</a></li>
+          <li className="mb-2"><a href="/#services" className="hover:text-white">Services</a></li>
+          <li className="mb-2"><a href="/#workflow" className="hover:text-white">Workflow</a></li>
+          <li className="mb-2"><a href="/#clients" className="hover:text-white">Clients</a></li>
+          <li className="mb-2"><a href="/#contact" className="hover:text-white">Contact</a></li>
         </ul>
 
         {/* Modal Contact Form */}
@@ -67,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
         {/* Bottom Section */}
         <div className={`pt-8 mt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-500 ease-out delay-[600ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <p className="text-sm">&copy; {new Date().getFullYear()} IPage Vision Visual Solutions Inc. All rights reserved.</p>
-          
+
           <div className="flex space-x-6 text-sm">
             <a href="/terms-and-conditions" className="hover:text-white">Terms & Conditions</a>
             <a href="/privacy-policy" className="hover:text-white">Privacy Policy</a>
