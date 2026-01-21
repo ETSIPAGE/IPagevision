@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IPage Vision</title>
-   <link rel="icon" type="image/png" sizes="64x64" href="/images/Icon.png" />
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              'brand-orange': '#f97316',
-              'brand-orange-dark': '#ea580c',
-              'brand-secondary': '#0033a1',
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPage Vision</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/Icon.png" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
           },
+          colors: {
+            'brand-orange': '#f97316',
+            'brand-orange-dark': '#ea580c',
+            'brand-secondary': '#0033a1',
+          }
         },
-      }
-    </script>
+      },
+    }
+  </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome (chat widget icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome (chat widget icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Import map for modules -->
-    <script type="importmap">
+  <!-- Import map for modules -->
+  <script type="importmap">
 {
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
@@ -50,22 +53,23 @@
 
 </script>
 
-    <!-- Smooth scroll -->
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+  <!-- Smooth scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 
-    <!-- Main project CSS -->
-    <link rel="stylesheet" href="/index.css">
-  </head>
+  <!-- Main project CSS -->
+  <link rel="stylesheet" href="/index.css">
+</head>
 
-  <body class="bg-black text-white">
-    <!-- Main app root -->
-    <div id="root"></div>
+<body class="bg-black text-white">
+  <!-- Main app root -->
+  <div id="root"></div>
 
-    <!-- Load main TSX -->
-    <script type="module" src="/index.tsx"></script>
-  </body>
+  <!-- Load main TSX -->
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
