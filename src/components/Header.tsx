@@ -1,13 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'; // hamburger & close icons
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Determine visibility based on scroll direction
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setIsScrolled(currentScrollY > 10);
+      lastScrollY.current = currentScrollY;
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
 
@@ -15,7 +32,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        } ${isScrolled ? 'bg-white shadow-md' : 'bg-white'
         }`}
     >
       <div className="container mx-auto px-6 md:px-12 py-2 flex justify-between items-center">

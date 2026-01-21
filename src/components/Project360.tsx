@@ -67,22 +67,20 @@ const Project360: React.FC = () => {
       )}
 
       {activeUrl && (
-        <div className="w-full flex justify-center">
-          <div className="relative w-full max-w-[1400px] h-[82vh] md:h-[88vh]">
-            <button
-              className="absolute right-3 top-3 inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white p-2"
-              aria-label="Close"
-              onClick={() => setActiveUrl(null)}
-            >
-              <X size={18} />
-            </button>
-            <iframe
-              title="360 Project"
-              src={activeUrl}
-              className="w-full h-full bg-black"
-              allowFullScreen
-            />
-          </div>
+        <div className="fixed inset-0 z-[100] bg-black">
+          <button
+            className="absolute right-6 top-6 z-50 inline-flex items-center justify-center rounded-full bg-black/50 hover:bg-black/80 text-white p-3 transition-colors backdrop-blur-sm"
+            aria-label="Close"
+            onClick={() => setActiveUrl(null)}
+          >
+            <X size={24} />
+          </button>
+          <iframe
+            title="360 Project"
+            src={activeUrl}
+            className="w-full h-full border-0"
+            allowFullScreen
+          />
         </div>
       )}
     </div>
