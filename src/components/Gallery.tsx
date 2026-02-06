@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
+import { GalleryImage } from '../types';
 
-interface GalleryImage {
-  id: string;
-  src: string;
-  title: string;
-  subtitle: string;
-}
 
 interface GalleryProps {
   images: GalleryImage[];
@@ -34,6 +30,76 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
     setSelectedImage(image);
     setLightboxOpen(true);
   };
+
+  const handleDownload = async (e: React.MouseEvent, image: GalleryImage) => {
+    e.stopPropagation();
+
+    // Clean filename: "title_id.jpg"
+    const fileName = `${image.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_${image.id}.jpg`;
+
+    try {
+      // 1. Fetch the image data. 
+      // Adding a timestamp (?t=...) is essential for S3 cross-origin downloads
+      // because it prevents the browser from using a restricted cached version.
+      const response = await fetch(`${image.src}?t=${Date.now()}`, {
+        method: 'GET',
+        mode: 'cors'
+      });
+
+      if (!response.ok) throw new Error('Download failed');
+
+      const blob = await response.blob();
+
+      // 2. Create a local temporary URL for the downloaded blob
+      const blobUrl = window.URL.createObjectURL(blob);
+
+      // 3. Trigger the browser to save the file
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+
+      // 4. Cleanup
+      document.body.removeChild(link);
+      setTimeout(() => window.URL.revokeObjectURL(blobUrl), 200);
+
+    } catch (error) {
+      console.error('Direct download failed:', error);
+      // Fallback that doesn't use target="_blank" to try and avoid new tab
+      const link = document.createElement('a');
+      link.href = image.src;
+      link.download = fileName;
+      link.click();
+    }
+  };
+
+  const handlePrev = useCallback((e?: React.MouseEvent | KeyboardEvent) => {
+    if (e && 'stopPropagation' in e) e.stopPropagation();
+    if (!selectedImage) return;
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    setSelectedImage(images[prevIndex]);
+  }, [selectedImage, images]);
+
+  const handleNext = useCallback((e?: React.MouseEvent | KeyboardEvent) => {
+    if (e && 'stopPropagation' in e) e.stopPropagation();
+    if (!selectedImage) return;
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
+    const nextIndex = (currentIndex + 1) % images.length;
+    setSelectedImage(images[nextIndex]);
+  }, [selectedImage, images]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === 'ArrowLeft') handlePrev(e);
+      if (e.key === 'ArrowRight') handleNext(e);
+      if (e.key === 'Escape') setLightboxOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen, handlePrev, handleNext]);
 
   return (
     <div className="bg-black py-8 overflow-hidden">
@@ -147,12 +213,38 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
           onClick={() => setLightboxOpen(false)}
         >
+          <div className="absolute top-4 right-4 flex items-center gap-6 z-10">
+            <button
+              className="text-white hover:text-gray-300 transition-all duration-300 hover:scale-110"
+              onClick={(e) => handleDownload(e, selectedImage)}
+              title="Download Image"
+            >
+              <Download size={24} />
+            </button>
+            <button
+              className="text-white text-4xl leading-none hover:text-gray-300 transition-all duration-300 hover:scale-110"
+              onClick={() => setLightboxOpen(false)}
+            >
+              &times;
+            </button>
+          </div>
+
+          {/* Navigation Arrows */}
           <button
-            className="absolute top-4 right-4 text-white text-3xl z-10"
-            onClick={() => setLightboxOpen(false)}
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white p-2 rounded-full hover:bg-white/10 transition-all duration-300 z-10"
+            onClick={(e) => handlePrev(e)}
+            title="Previous Image"
           >
-            &times;
+            <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
           </button>
+          <button
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white p-2 rounded-full hover:bg-white/10 transition-all duration-300 z-10"
+            onClick={(e) => handleNext(e)}
+            title="Next Image"
+          >
+            <ChevronRight className="w-8 h-8 md:w-12 md:h-12" />
+          </button>
+
           <div className="relative max-w-6xl max-h-[90vh] w-full flex items-center justify-center">
             <img
               src={selectedImage.src}
