@@ -10,6 +10,7 @@ interface GalleryProps {
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [currentLightboxImages, setCurrentLightboxImages] = useState<GalleryImage[]>([]);
 
   // Distribute images into rows with specified counts
   const row1Count = 2;
@@ -26,8 +27,9 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
   const imageHeight = 'h-[500px]';
   const imageWidth = 'w-[calc(50vw-1rem)]'; // Same as row 1 (2 images per row)
 
-  const openLightbox = (image: GalleryImage) => {
+  const openLightbox = (image: GalleryImage, rowImages: GalleryImage[]) => {
     setSelectedImage(image);
+    setCurrentLightboxImages(rowImages);
     setLightboxOpen(true);
   };
 
@@ -76,19 +78,19 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 
   const handlePrev = useCallback((e?: React.MouseEvent | KeyboardEvent) => {
     if (e && 'stopPropagation' in e) e.stopPropagation();
-    if (!selectedImage) return;
-    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    setSelectedImage(images[prevIndex]);
-  }, [selectedImage, images]);
+    if (!selectedImage || currentLightboxImages.length === 0) return;
+    const currentIndex = currentLightboxImages.findIndex(img => img.id === selectedImage.id);
+    const prevIndex = (currentIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
+    setSelectedImage(currentLightboxImages[prevIndex]);
+  }, [selectedImage, currentLightboxImages]);
 
   const handleNext = useCallback((e?: React.MouseEvent | KeyboardEvent) => {
     if (e && 'stopPropagation' in e) e.stopPropagation();
-    if (!selectedImage) return;
-    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
-    const nextIndex = (currentIndex + 1) % images.length;
-    setSelectedImage(images[nextIndex]);
-  }, [selectedImage, images]);
+    if (!selectedImage || currentLightboxImages.length === 0) return;
+    const currentIndex = currentLightboxImages.findIndex(img => img.id === selectedImage.id);
+    const nextIndex = (currentIndex + 1) % currentLightboxImages.length;
+    setSelectedImage(currentLightboxImages[nextIndex]);
+  }, [selectedImage, currentLightboxImages]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -110,7 +112,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             <div
               key={`row1-${image.id}-${index}`}
               className="relative overflow-hidden group flex-shrink-0 mx-1 cursor-pointer"
-              onClick={() => openLightbox(image)}
+              onClick={() => openLightbox(image, row1)}
             >
               <div className={`${imageHeight} ${imageWidth}`}>
                 <img
@@ -136,7 +138,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             <div
               key={`row2-${image.id}-${index}`}
               className="relative overflow-hidden group flex-shrink-0 mx-1 cursor-pointer"
-              onClick={() => openLightbox(image)}
+              onClick={() => openLightbox(image, row2)}
             >
               <div className={`${imageHeight} ${imageWidth}`}>
                 <img
@@ -162,7 +164,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             <div
               key={`row3-${image.id}-${index}`}
               className="relative overflow-hidden group flex-shrink-0 mx-1 cursor-pointer"
-              onClick={() => openLightbox(image)}
+              onClick={() => openLightbox(image, row3)}
             >
               <div className={`${imageHeight} ${imageWidth}`}>
                 <img
@@ -188,7 +190,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
             <div
               key={`row4-${image.id}-${index}`}
               className="relative overflow-hidden group flex-shrink-0 mx-1 cursor-pointer"
-              onClick={() => openLightbox(image)}
+              onClick={() => openLightbox(image, row4)}
             >
               <div className={`${imageHeight} ${imageWidth}`}>
                 <img
