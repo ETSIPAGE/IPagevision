@@ -18,7 +18,6 @@ const PROJECTS: Project[] = [
   // { id: 'pro7', title: 'Vensa Breeze', url: 'https://www.ipageums.com/360Viz/Vensa/Breeze/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Vensa+Breeze.png' },
   { id: 'pro8', title: 'Poulomi Palazzo', url: 'https://www.ipageums.com/360Viz/Poulomi/Palazzo/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Poulomi+Palazzo.png' },
   { id: 'pro9', title: 'Aspire Ameya', url: 'https://www.ipageums.com/360Viz/Aspire/Ameya/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Aspire+Ameya.png' },
-  { id: 'pro10', title: 'Aspire Bodakonda', url: 'https://www.ipageums.com/360Viz/Aspire/Bodakonda/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Bodakonda.png' },
   { id: 'pro11', title: 'Ooty', url: 'https://www.ipageums.com/360Viz/Ooty/Realion/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Ooty.png' },
 
 ];
