@@ -13,11 +13,12 @@ const PROJECTS: Project[] = [
   { id: 'pro2', title: 'GHR Callisto', url: 'https://ipageums.com/360Viz/2/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/GHR+Callisto.png' },
   { id: 'pro3', title: 'Savaaya Convention', url: 'https://ipageums.com/360Viz/3/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Saavya.png' },
   { id: 'pro4', title: 'Interior 360Viz', url: 'https://www.ipageums.com/360Viz/CloveTech/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/screenshot+(6).jpg' },
-  { id: 'pro5', title: 'DSR The World', url: 'https://www.ipageums.com/360Viz/TheWorld/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/DSR+The+World.png' },
+  { id: 'pro5', title: 'DSR The World', url: 'https://www.ipageums.com/360Viz/DSRTheWorld/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/DSR+The+World.png' },
   // { id: 'pro6', title: 'Vensa One', url: 'https://www.ipageums.com/360Viz/Vensa/One/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Vensa+One.png' },
   // { id: 'pro7', title: 'Vensa Breeze', url: 'https://www.ipageums.com/360Viz/Vensa/Breeze/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Vensa+Breeze.png' },
-  { id: 'pro8', title: 'Poulomi Palazzo', url: 'https://www.ipageums.com/360Viz/Poulomi/Palazzo/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Poulomi+Palazzo.png' },
-  { id: 'pro9', title: 'Aspire Ameya', url: 'https://www.ipageums.com/360Viz/Aspire/Ameya/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Aspire+Ameya.png' },
+  { id: 'pro8', title: 'Poulomi Palazzo', url: 'https://www.ipageums.com/360Viz/PoulomiPalazzo/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Poulomi+Palazzo.png' },
+  { id: 'pro9', title: 'Aspire Ameya', url: 'https://www.ipageums.com/360Viz/AspireAmeya/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Aspire+Ameya.png' },
+  { id: 'pro10', title: 'Anvita High 9', url: 'https://www.ipageums.com/360Viz/AnvitaHigh9/', image: '/images/high9-slider-4.jpg.jpeg' },
   { id: 'pro11', title: 'Ooty', url: 'https://www.ipageums.com/360Viz/Ooty/Realion/', image: 'https://ipagevision.s3.ap-south-1.amazonaws.com/Ooty.png' },
 
 ];
