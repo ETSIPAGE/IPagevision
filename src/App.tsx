@@ -15,6 +15,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import SubSection from './components/SubSection';
 import AdminDashboard from './components/AdminDashboard'; // 👈 Added
 import ChatbotWhole from './components/chatbotComponents/ChatbotWhole';
+import WhatsAppButton from './components/WhatsAppButton';
 import { GALLERY_IMAGES, CLIENT_LOGOS, NAV_LINKS } from './constants';
 import Project360 from './components/Project360';
 
@@ -231,6 +232,7 @@ function App() {
             }
           />
         </Routes>
+        <WhatsAppButton />
       </div>
     </Router>
   );
