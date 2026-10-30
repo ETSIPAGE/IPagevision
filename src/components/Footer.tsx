@@ -48,6 +48,7 @@ const Footer: React.FC<FooterProps> = ({ links }) => {
           <li className="mb-2"><a href="/#about-us" className="hover:text-white">About us</a></li>
           <li className="mb-2"><a href="/#works" className="hover:text-white">Projects</a></li>
           <li className="mb-2"><a href="/360" className="hover:text-white">360°Viz</a></li>
+          <li className="mb-2"><a href="/360-video" className="hover:text-white">360° Video</a></li>
           <li className="mb-2"><a href="/#services" className="hover:text-white">Services</a></li>
           <li className="mb-2"><a href="/#workflow" className="hover:text-white">Workflow</a></li>
           <li className="mb-2"><a href="/#clients" className="hover:text-white">Clients</a></li>

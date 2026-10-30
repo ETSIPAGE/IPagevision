@@ -18,6 +18,7 @@ import ChatbotWhole from './components/chatbotComponents/ChatbotWhole';
 import WhatsAppButton from './components/WhatsAppButton';
 import { GALLERY_IMAGES, CLIENT_LOGOS, NAV_LINKS } from './constants';
 import Project360 from './components/Project360';
+import Video360 from './components/Video360';
 
 // Scroll to anchor on hash change across routes with fixed header offset
 function ScrollToHash() {
@@ -93,6 +94,30 @@ function App() {
                 <Header />
                 <main className="pt-16">
                   <Project360 />
+                </main>
+                <Footer links={NAV_LINKS} />
+              </>
+            }
+          />
+          <Route
+            path="/360-video"
+            element={
+              <>
+                <Header />
+                <main className="pt-16">
+                  <Video360 />
+                </main>
+                <Footer links={NAV_LINKS} />
+              </>
+            }
+          />
+          <Route
+            path="/360video"
+            element={
+              <>
+                <Header />
+                <main className="pt-16">
+                  <Video360 />
                 </main>
                 <Footer links={NAV_LINKS} />
               </>

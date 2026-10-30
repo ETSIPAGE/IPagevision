@@ -66,10 +66,11 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-8 text-lg font-semibold text-black">
+        <nav className="hidden md:flex gap-6 lg:gap-8 text-base lg:text-lg font-semibold text-black">
           <Link to="/#about-us" className="hover:text-orange-400 transition-colors">About us</Link>
           <Link to="/#works" className="hover:text-orange-400 transition-colors">Projects</Link>
           <Link to="/360" className="hover:text-orange-400 transition-colors">360°Viz</Link>
+          <Link to="/360-video" className="hover:text-orange-400 transition-colors">360° Video</Link>
           <Link to="/#services" className="hover:text-orange-400 transition-colors">Services</Link>
 
           <Link to="/#workflow" className="hover:text-orange-400 transition-colors">Workflow</Link>
@@ -85,6 +86,7 @@ const Header: React.FC = () => {
           <Link to="/#works" onClick={() => setIsMenuOpen(false)}>Projects</Link>
           <Link to="/#services" onClick={() => setIsMenuOpen(false)}>Services</Link>
           <Link to="/360" onClick={() => setIsMenuOpen(false)}>360°Viz</Link>
+          <Link to="/360-video" onClick={() => setIsMenuOpen(false)}>360° Video</Link>
           <Link to="/#workflow" onClick={() => setIsMenuOpen(false)}>Workflow</Link>
           <Link to="/#clients" onClick={() => setIsMenuOpen(false)}>Clients</Link>
           <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
