@@ -40,7 +40,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
           <img
-            src="/images/ipagevisionlogonew.png"
+            src="/images/vision-header-logo.png"
             alt="IPage Vision Logo"
             className="h-16 w-auto scale-150 origin-left"
 
